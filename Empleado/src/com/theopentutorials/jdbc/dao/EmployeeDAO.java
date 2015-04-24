@@ -26,7 +26,7 @@ public class EmployeeDAO {
     public EmployeeDAO() { }
      
     public Employee getEmployee(int employeeId) throws SQLException {
-        String query = "SELECT * FROM employee WHERE emp_id=" + employeeId;
+        String query = "SELECT * FROM Employee WHERE id=" + employeeId;
         ResultSet rs = null;
         Employee employee = null;
         try {
@@ -47,7 +47,7 @@ public class EmployeeDAO {
     // Get all of employees
     //
     public List<Employee> getEmployees() throws SQLException {
-        String query = "SELECT * FROM employee";
+        String query = "SELECT * FROM Employee";
         List<Employee> list = new ArrayList<Employee>();
         Employee employee = null;
         ResultSet rs = null;
@@ -59,11 +59,11 @@ public class EmployeeDAO {
                 employee = new Employee();
                 /*Retrieve one employee details 
                 and store it in employee object*/
-                employee.setEmpId(rs.getInt("emp_id"));
-                employee.setEmpName(rs.getString("emp_name"));
-                employee.setDob(rs.getDate("dob"));
-                employee.setSalary(rs.getDouble("salary"));
-                employee.setDeptId((rs.getInt("dept_id")));
+                employee.setEmpId(rs.getInt("id"));
+                employee.setEmpName(rs.getString("name"));
+                employee.setDob(rs.getDate("fecha"));
+                employee.setSalary(rs.getDouble("salario"));
+                employee.setDeptId((rs.getInt("dept")));
  
                 //add each employee to the list
                 list.add(employee);
@@ -90,11 +90,11 @@ public class EmployeeDAO {
   
    
     	
-    	String query = "INSERT INTO employee" +
+    	String query = "INSERT INTO Employee " + 
     			 "VALUES ("
     			 + Integer.toString(employee.getEmpId()) +","
-    			 + employee.getEmpName() +","
-    			 + dateformatyyyyMMdd.format(employee.getDob()) +","
+    			 + "'" + employee.getEmpName() +"',"
+    			 + "'" + dateformatyyyyMMdd.format(employee.getDob()) +"',"
     			 + Double.toString(employee.getSalary()) +","
     			 + Integer.toString(employee.getDeptId()) 
     			 + ")"
