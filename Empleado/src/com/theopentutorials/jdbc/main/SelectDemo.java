@@ -7,7 +7,6 @@ import java.util.Date;
 
 
 import com.theopentutorials.jdbc.dao.EmployeeDAO;
-import com.theopentutorials.jdbc.db.ConnectionFactory;
 import com.theopentutorials.jdbc.to.Employee;
 
 import java.util.List;
