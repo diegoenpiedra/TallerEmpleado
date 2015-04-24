@@ -3,8 +3,11 @@ package com.theopentutorials.jdbc.main;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-
+import java.util.Date;
+import java.util.ArrayList;
+//import java.sql.*;
 import com.theopentutorials.jdbc.dao.EmployeeDAO;
+import com.theopentutorials.jdbc.db.ConnectionFactory;
 import com.theopentutorials.jdbc.to.Employee;
 
 import java.util.List;
@@ -12,7 +15,28 @@ import java.util.List;
 public class SelectDemo {
     public static void main(String[] args) {
         //Get all employees
+        
+        //Connection cn = ConnectionFactory.getConnection();
+        Employee Diego = new Employee();
+        Diego.setEmpId(1);
+        Diego.setEmpName("Diego");
+        Diego.setDob(new Date());
+        Diego.setSalary(20000);
+        Diego.setDeptId(2);
+        
+        Employee cesar = new Employee(2,"Cesar",new Date(),30000,3);
+        
+        
+        EmployeeDAO dao = new EmployeeDAO();
+        
+        try{
+        dao.insertEmployee(Diego);
+        dao.insertEmployee(cesar);
+        }catch(Exception ex){
+        
         getEmployees();
+        }
+        
     }
  
     private static void getEmployees() {
@@ -22,7 +46,7 @@ public class SelectDemo {
             employees = empDao.getEmployees();
             for (Employee employee : employees) {
                 displayEmployee(employee);
-                //System.out.println(employee);
+                System.out.println(employee);
             }
         } catch (SQLException e) {
             e.printStackTrace();

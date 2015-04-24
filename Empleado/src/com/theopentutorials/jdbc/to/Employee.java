@@ -15,7 +15,17 @@ public class Employee {
     private Date dob;
     private double salary;
     private int deptId;
+
+ public Employee (int id,String name,Date fecha,double salary,int depid){
+        this.empId = id;
+        this.empName = name;
+        this.dob = fecha;
+        this.salary = salary;
+        this.deptId = depid;
+ }   
+ public Employee (){
      
+ }
     public int getEmpId() {
         return empId;
     }
