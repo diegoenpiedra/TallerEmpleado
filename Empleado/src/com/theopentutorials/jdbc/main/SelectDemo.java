@@ -4,8 +4,8 @@ package com.theopentutorials.jdbc.main;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.ArrayList;
-//import java.sql.*;
+
+
 import com.theopentutorials.jdbc.dao.EmployeeDAO;
 import com.theopentutorials.jdbc.db.ConnectionFactory;
 import com.theopentutorials.jdbc.to.Employee;
@@ -16,7 +16,6 @@ public class SelectDemo {
     public static void main(String[] args) {
         //Get all employees
         
-        //Connection cn = ConnectionFactory.getConnection();
         Employee Diego = new Employee();
         Diego.setEmpId(1);
         Diego.setEmpName("Diego");
@@ -32,9 +31,10 @@ public class SelectDemo {
         try{
         dao.insertEmployee(Diego);
         dao.insertEmployee(cesar);
+        getEmployees();
         }catch(Exception ex){
         
-        getEmployees();
+      
         }
         
     }
@@ -46,7 +46,7 @@ public class SelectDemo {
             employees = empDao.getEmployees();
             for (Employee employee : employees) {
                 displayEmployee(employee);
-                System.out.println(employee);
+                //System.out.println(employee);
             }
         } catch (SQLException e) {
             e.printStackTrace();
