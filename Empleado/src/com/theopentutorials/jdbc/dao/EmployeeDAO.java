@@ -93,8 +93,8 @@ public class EmployeeDAO {
     	String query = "INSERT INTO Employee " + 
     			 "VALUES ("
     			 + Integer.toString(employee.getEmpId()) +","
-    			 + employee.getEmpName() +","
-    			 + dateformatyyyyMMdd.format(employee.getDob()) +","
+    			 + "'" + employee.getEmpName() +"',"
+    			 + "'" + dateformatyyyyMMdd.format(employee.getDob()) +"',"
     			 + Double.toString(employee.getSalary()) +","
     			 + Integer.toString(employee.getDeptId()) 
     			 + ")"

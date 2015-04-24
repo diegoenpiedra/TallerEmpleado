@@ -15,7 +15,7 @@ public class SelectDemo {
     public static void main(String[] args) {
         //Get all employees
         
-        //VentanaPrincipal vtn = new VentanaPrincipal();
+        VentanaPrincipal vtn = new VentanaPrincipal();
         
         Employee Diego = new Employee();
         Diego.setEmpId(1);
@@ -24,13 +24,13 @@ public class SelectDemo {
         Diego.setSalary(20000);
         Diego.setDeptId(2);
         
-        //Employee cesar = new Employee(2,"Cesar",new Date(),30000,3);
+        Employee cesar = new Employee(2,"Cesar",new Date(1999,8,01),30000,3);
        
         EmployeeDAO dao = new EmployeeDAO();
-        
+       
         try{
         dao.insertEmployee(Diego);
-        //dao.insertEmployee(cesar);
+        dao.insertEmployee(cesar);
         getEmployees();
         
         }catch(Exception ex){
